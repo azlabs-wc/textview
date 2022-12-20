@@ -162,14 +162,18 @@ export class AzlTextEditView extends LitElement {
   private onSubmitEvent(e: KeyboardEvent) {
     if ((e.code === 'Enter' || e.key === 'Escape') && this.editing) {
       this.editing = false;
-      this.dispatchEvent(
-        new SubmitEvent('submit', {
-          detail: this.value,
-          bubbles: true,
-          composed: true,
-          cancelable: true,
-        })
-      );
+      // We only fires the submit event only when user clicks on the `Enter` key as we treat
+      // `Escape` key press as cancel action
+      if (e.code === 'Enter') {
+        this.dispatchEvent(
+          new SubmitEvent('submit', {
+            detail: this.value,
+            bubbles: true,
+            composed: true,
+            cancelable: true,
+          })
+        );
+      }
     }
     e.stopPropagation();
   }
