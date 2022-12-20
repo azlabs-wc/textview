@@ -3,7 +3,7 @@
   "description": "Text (display) and Edit view component",
   "license": "MIT",
   "author": "Azandrew Sidoine <azandrewdevelopper@gmail.com>",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "main": "index.js",
   "module": "index.js",
   "keywords": [
