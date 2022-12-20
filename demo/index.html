@@ -1,29 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
-<head>
-  <meta charset="utf-8">
-  <style>
-    body {
-      background: #fafafa;
-    }
-  </style>
-</head>
-<body>
-  <div id="demo"></div>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      *,
+      body,
+      :host {
+        font-size: calc(10px + 2vmin);
+        color: #1a2b42;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background: #fafafa;
+      }
+      .page-title {
+        text-align: center;
+        font-size: 3rem;
+        line-height: 1.2rem;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+      }
+    </style>
+  </head>
 
-  <script type="module">
-    import { html, render } from 'lit';
-    import '../dist/src/azl-text-view.js';
+  <body>
+    <div class="page-title">Text Edit View</div>
+    <div id="demo"></div>
 
-    const title = 'Hello owc World!';
-    render(
-      html`
-        <azl-text-view .title=${title}>
-          some light-dom
-        </azl-text-view>
-      `,
-      document.querySelector('#demo')
-    );
-  </script>
-</body>
+    <script type="module">
+      import { html, render } from 'lit';
+      import '../dist/azl-text-edit-view.js';
+      import '@azlabs-wc/layouts/azl-center.js';
+
+      const onSubmitListener = e => {
+        console.log('Submit Listener: ', e.data);
+      };
+
+      const onChangeListener = e => {
+        console.log('Change Listener: ', e.data);
+      };
+
+      render(
+        html`
+                <azl-center>
+                  <azl-text-edit-view type="text" value="Customer name">
+                  </azl-text-edit-view>
+                </azl-center>
+                <br />
+                <azl-center>
+                  <azl-text-edit-view @change=${onChangeListener} @submit=${onSubmitListener} type="text" value="Azandrew Sidoine" placeholder="Saisir le nom du client">
+                  </azl-text-edit-view>
+                </azl-center>
+              `,
+        document.querySelector('#demo')
+      );
+    </script>
+  </body>
 </html>

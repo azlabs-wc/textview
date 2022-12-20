@@ -13,8 +13,9 @@
     "text"
   ],
   "exports": {
-    ".": "./dist/src/index.js",
-    "./azl-text-view.js": "./dist/src/azl-text-view.js"
+    ".": "./index.js",
+    "./azl-text-edit-view.js": "./azl-text-edit-view.js",
+    "./azl-text-edit-view": "./azl-text-edit-view.js"
   },
   "files": [
     "*"
@@ -32,7 +33,7 @@
   },
   "dependencies": {
     "@azlabs-wc/layouts": "^0.1.15",
-    "@azlabs-wc/text-input": "^0.1.3",
+    "@azlabs-wc/text-input": "^0.1.8",
     "lit": "^2.4.0"
   },
   "devDependencies": {
